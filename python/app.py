@@ -113,11 +113,11 @@ if st.button("Calcular precio justo", type="primary", use_container_width=True):
     # Resultado
     st.divider()
     st.markdown(f"## :{color}[{etiqueta}]")
-    c1, c2, c3 = st.columns(3)
+    c1, c2 = st.columns(2)
     c1.metric("Precio justo", f"{precio_justo:,.0f} €".replace(",", "."))
-    c2.metric("Rango normal", f"{minimo:,.0f} – {maximo:,.0f} €".replace(",", "."))
-    c3.metric("El anuncio pide", f"{precio_anuncio:,.0f} €".replace(",", "."),
+    c2.metric("El anuncio pide", f"{precio_anuncio:,.0f} €".replace(",", "."),
               delta=f"{dif:+,.0f} € ({dif_pct:+.0%})".replace(",", "."), delta_color="inverse")
+    st.markdown(f"**Rango de precio normal:** {minimo:,.0f} € – {maximo:,.0f} €".replace(",", "."))
 
     # Explicación: qué sube y qué baja el precio de ESTE coche (valores SHAP)
     pool = Pool(fila, cat_features=CAT_COLS)

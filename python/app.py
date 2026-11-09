@@ -5,6 +5,7 @@ Modelo: CatBoost entrenado con ~71.000 anuncios de AutoScout24 (octubre 2026)
 
 import json
 from datetime import date
+from pathlib import Path
 
 import numpy as np
 import pandas as pd
@@ -17,13 +18,13 @@ from catboost import CatBoostRegressor, Pool
 @st.cache_resource
 def cargar_modelo():
     modelo = CatBoostRegressor()
-    modelo.load_model("modelos/catboost_final.cbm")
+    modelo.load_model(str(Path(__file__).parent / "modelos" / "catboost_final.cbm"))
     return modelo
 
 
 @st.cache_data
 def cargar_config():
-    with open("modelos/config_app.json", encoding="utf-8") as f:
+    with open(Path(__file__).parent / "modelos" / "config_app.json", encoding="utf-8") as f:
         return json.load(f)
 
 

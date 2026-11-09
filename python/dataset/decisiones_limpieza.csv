@@ -1,0 +1,28 @@
+que,por_que,impacto
+Eliminar drive_type,100 % nulos,-1 col
+"Eliminar doors, seats","99,99 % nulos (2 valores)",-2 col
+Eliminar price_evaluation,"99,96 % nulos (44 valores)",-1 col
+Eliminar previous_price_eur,"99,6 % nulos + riesgo de leakage",-1 col
+Filtrar a autoscout,"mobilede = 0,2 %, otro portal",-0 filas
+Precio <= 150000,Hiperdeportivos: otro mercado,-987 filas
+Km entre 1000 y 1000000,Km0 (alcance) + imposibles,-3861 filas
+Eliminar transmission NaN,"< 0,1 %",-45 filas
+power_hp <= 1 o 999 → NaN,Faltante codificado como 0/1/999,730 valores a imputar tras split
+"Eliminar source_site, seller_country, accident_free",Constantes / artefacto del scraping,-3 col
+body_type → body_grupo (4 categorías),"Nulos desde 10-oct (artefacto); 93,3 % coincide con la moda por model_group",NaN se imputan con moda por model_group tras split (fit en train)
+Eliminar color,"Nulos desde 10-oct (artefacto), no imputable",-1 col
+Eliminar model (se usa model_group),Más limpio y menos cardinalidad,-1 col
+Unificar marcas,"Citroën/Citroen, Smart, KGM/SsangYong",0 filas
+"Eliminar Iveco, MAN, caravanas, Silence",No son turismos (alcance),-2848 filas (junto con la siguiente)
+Eliminar model_group NaN,"3 %, variable clave, no imputable",-2848 filas (junto con la anterior)
+Crear tipo_hibrido (No/MHEV/HEV/PHEV) desde version,'Híbrido' del portal mezcla 3 tecnologías con precios distintos,Regex + heurística por marca; precisión no perfecta (limitación)
+Eliminar version,Ya usada para tipo_hibrido; cardinalidad muy alta,-1 col
+"Ciudad → provincia (diccionario manual, ~160 ciudades)",Ahorro frente al cruce con el INE; los anuncios se concentran en pocas ciudades,Cobertura ~87 %; resto → 'Otras' (13 %)
+"Crear antiguedad y km_anio; eliminar reg_year, first_registration","Edad al publicar; km/año con suelo 0,5 años; reg_year 100 % redundante",+2 / -2 col
+Antigüedad < 0 → 0,Matriculación con precisión mensual,2 valores
+Eliminar km_anio > 100.000,Imposible (> 275 km/día),-17 filas
+"Eliminar coches duplicados (mismo coche, distinto id)",Doble recogida del scraper y re-publicaciones; evita leakage train/test,-4633 filas
+images_count fuera del modelo (solo EDA),"Describe el anuncio, no el coche; pico en 10 por límites del portal",Se excluye de X
+images_count fuera del modelo (solo EDA),"Describe el anuncio, no el coche; pico en 10 por límites del portal",Se excluye de X
+H2 contrastada con comparación pareada (modelo × edad),Agregado sesgado por composición (diésel = coches grandes),"162 pares; diésel −1,6 % (p=0,024); −5,3 % a 9-10 años"
+H4 con índice de precio relativo (vs mediana nacional modelo × edad),Evita sesgo de composición entre provincias,Mayoría ±1 %; Canarias −3 %; extremos +3/+6 % ligados a pocos concesionarios

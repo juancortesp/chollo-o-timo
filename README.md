@@ -1,6 +1,6 @@
 # 🚗 ¿Chollo o timo? · Calculadora del precio justo de un coche de segunda mano en España
 
-👉 **[Probar la calculadora](https://chollo-o-timo-coches.streamlit.app)**
+👉 **[Probar la calculadora](https://chollo-o-timo-coches.streamlit.app)** · 📄 **[Case study con vídeo demo](https://juancortesp.github.io/proyectos/coches/)** ([English](https://juancortesp.github.io/proyectos/coches/en/))
 
 Introduces las características de un coche y el precio que piden en el anuncio, y la app te devuelve:
 - el **precio justo estimado**,
@@ -104,5 +104,5 @@ Python · pandas · NumPy · scikit-learn · CatBoost · seaborn · matplotlib �
 
 ---
 
-**Juan** · Data Analyst
-📧 infojuancortesp@gmail.com · [LinkedIn](PON_AQUI_TU_LINKEDIN)
+**Juan Cortés Paredes** · Data Analyst
+🌐 [Portfolio](https://juancortesp.github.io/) · [LinkedIn](https://www.linkedin.com/in/juan-cortes-paredes/) · [GitHub](https://github.com/juancortesp)
